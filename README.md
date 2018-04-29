@@ -1,75 +1,75 @@
-# Generative Models
+# Multilayer Perceptron on MNIST
 
 ## Description
 
-This repository contains a group of work for speech generation project.
+This repository contains numpy implementation of MLP and trained on MNIST dataset.
 
 ## TODO List
 
-- [x] Data processing
-- [x] WAE
-- [x] WGAN-GP
-- [x] VAE+GAN
+- [] Code
 
+## Model 
 
-## WGAN-GP(Wasserstein GAN-gradient penalty)
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/mlp.png" width="800">
 
-<img src="https://github.com/edchengg/generative_model_speech/blob/master/figures/wgan.png" width="800">
+2 Hidden Layers with 256 hidden units
 
-### Results
-![Alt Text](https://github.com/edchengg/generative_model_speech/blob/master/figures/gan_result.gif)
+The model is trained with single batch.
 
-[Improved Training of Wasserstein GANs](https://arxiv.org/pdf/1704.00028.pdf)
+Activation function: Sigmoid
 
-## WAE(Wasserstein AutoEncoder)
+Loss function: Squared Loss
 
-<img src="https://github.com/edchengg/generative_model_speech/blob/master/figures/wae_gan.png" width="800">
+## Loss
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/result.png" width="800">
 
-### Results
-![Alt Text](https://github.com/edchengg/generative_model_speech/blob/master/figures/wae_result.gif)
+```
+Training Loss: 0.497138709845
+Training Loss: 0.35123461672
+Training Loss: 0.29073212762
+Training Loss: 0.25287852721
+Training Loss: 0.228611725677
+Training Loss: 0.210472892538
+epoch 1: training loss 0.20387900301012948
 
-[Wasserstein Auto-Encoders](https://arxiv.org/abs/1711.01558)
+epoch 1, 39.9 secs, lr = 1.0000, train accuracy 94.63, val accuracy 94.32
+Training Loss: 0.093845447349
+Training Loss: 0.0939409568035
+Training Loss: 0.0950943133785
+Training Loss: 0.0923214857969
+Training Loss: 0.0910271367438
+Training Loss: 0.0891776134181
+epoch 2: training loss 0.08799078829060497
 
+epoch 2, 40.7 secs, lr = 1.0000, train accuracy 96.22, val accuracy 95.17
+Training Loss: 0.0525298033834
+Training Loss: 0.0553080336578
+Training Loss: 0.0550518232716
+Training Loss: 0.0528660089821
+Training Loss: 0.0527412062536
+Training Loss: 0.0514901406598
+epoch 1: training loss 0.050354947315775396
 
-## Data
+epoch 1, 39.9 secs, lr = 0.5000, train accuracy 97.70, val accuracy 96.50
+Training Loss: 0.0390803788902
+Training Loss: 0.0407655826777
+Training Loss: 0.0397739693009
+Training Loss: 0.0381463515907
+Training Loss: 0.0385929397959
+Training Loss: 0.037993033945
+epoch 2: training loss 0.03723274103350594
 
-Logmel_normalized_48Label_Framealigned.mat
+epoch 2, 40.3 secs, lr = 0.5000, train accuracy 98.22, val accuracy 96.81
+Training Loss: 0.0276963877574
+Training Loss: 0.0281844048542
+Training Loss: 0.0277066549976
+Training Loss: 0.0263793106951
+Training Loss: 0.0265859680621
+Training Loss: 0.026233011265
+epoch 1: training loss 0.025580692733962265
 
-
-|train, dev, test| trainlen, devlen, testlen|train_dict,dev_dict,test_dict|
-| :-------------: |:-------------:| :-----:|
-| log filterbank features of the train, dev and test splits respectively | the length of each utterance in train, dev and test splits respectively |  per-frame aligned labels(0-48) |
-| Number: (1124823, 122487, 57919)| Number: (3696, 400, 192) | kth frame of 'train' --> kth entry of 'train_dict' --> label. (sil = silence)|
-
-After data processing (frame-window = 9):
-
-|train_data| dev_data|test_data|
-| :-------------: |:-------------:| :-----:|
-|(3696,x,9,121)|(400,x,9,121)|(192,x,9,121)|
-|x: number of (9,121) depends on frame-length|
-|the last column is the label:train_data[0][0][:,-1]|
-|[37,37,37,33,33,5,5,5,5]|[37,37,37,7,7,7,34,34,34]|[37,37,37,43,43,43,21,21,21]|
-
-Transfer for batch training:
-
-(3696,x,8,121) --> (y,$8 * 120$) [extract the last one(label)]
-
-## Phone label:
-|Phone|label|Phone|label|Phone|label|Phone|label|
-| :--:| :--:| :--:| :--:| :--:| :--:| :--:| :--:|
-|aa|0|ae|1|ah|2|ao|3|
-|aw|4|ax|5|ay|6|b|7|
-|ch|8|d|9|dh|10|dx|11|
-|eh|12|el|13|en|14|epi|15|
-|er|16|ey|17|f|18|g|19|
-|hh|20|ih|21|ix|22|iy|23|
-|jh|24|k|25|l|26|m|27|
-|n|28|ng|29|ow|30|oy|31|
-|p|32|q|33|r|34|s|35|
-|sh|36|sil|37|t|38|th|39|
-|cl|40|uh|41|uw|42|v|43|
-|vcl|44|w|45|y|46|z|47|
-|zh|48|
+epoch 1, 35.5 secs, lr = 0.2000, train accuracy 98.78, val accuracy 97.04
+```
 
 
 
