@@ -10,7 +10,7 @@ This repository contains numpy implementation of MLP and trained on MNIST datase
 
 ## Model 
 
-<img src="https://github.com/edchengg/MNIST_ANN/blob/master/mlp.png" width="800">
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/mlp.png" width="600">
 
 2 Hidden Layers with 256 hidden units
 
@@ -21,7 +21,7 @@ Activation function: Sigmoid
 Loss function: Squared Loss
 
 ## Loss
-<img src="https://github.com/edchengg/MNIST_ANN/blob/master/result.png" width="800">
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/result.png" width="600">
 
 ```
 Training Loss: 0.497138709845
