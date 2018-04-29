@@ -6,7 +6,7 @@ This repository contains numpy implementation of MLP and trained on MNIST datase
 
 ## TODO List
 
-- [] Code
+- [ ] Code
 
 ## Model 
 
