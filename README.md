@@ -21,7 +21,8 @@ Activation function: Sigmoid
 Loss function: Squared Loss
 
 ## Loss
-<img src="https://github.com/edchengg/MNIST_ANN/blob/master/result.png" width="600">
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/loss.png" width="600">
+<img src="https://github.com/edchengg/MNIST_ANN/blob/master/acc.png" width="600">
 
 ```
 Training Loss: 0.497138709845
